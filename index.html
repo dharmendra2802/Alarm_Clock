@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Alarm Clock</title>
+</head>
+<body class="">
+    <div id="clock-cont">
+            <div id="clock-out">  
+                <div id="clock-in">
+                    <div id="hour-cont" class="digit">00</div>
+                    <span class="digit">:</span>
+                    <div id="min-cont" class="digit">00</div>
+                    <span class="digit">:</span>
+                    <div id="sec-cont" class="digit">00</div>
+                </div>
+                <div class="digit am-pm" id="apm"></div>
+                <div class="clock-leg left"></div>
+                <div class="clock-leg right"></div>
+            </div>
+        </div>
+
+
+        <div id="lower-cont">
+            <div id="add-alarm">
+                <img src="img/add.png" alt="add a alarm" class="icon" id = "add-alm-icon">
+                <p>Add a new Alarm </p>
+            </div>
+        </div>
+
+        <div id="set-alrm-block" class="hide">
+            <img src="img/close.png" alt="" class="icon" id="close">
+            <input type="number" name="hour" id="hour-value" autofocus maxlength="2" max="12" min="1">   
+            <span>:</span>        
+            <input type="number" name="min" id="min-value" maxlength="2" max="59" min="0">
+            <span>:</span>
+            <select name="apm" id="apm-value">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            
+            <button id="set-alm-bttn">Set alarm</button>
+  
+        </div>
+
+
+        
+        
+        <div id="upcoming-cont" class="">
+            <p>Upcoming Alarms</p>
+
+        </div>
+        <audio src="img/sound.mp3" loop id="sound"></audio>
+
+        <!-- mode -->
+        <div id="mode">
+            <div id="set" class="light"></div>
+        </div>
+
+</body>
+<script src="script.js"></script>
+</html>
