@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+/* color */
+:root{
+    --clock-body:black;
+    --clock-in:rgb(48, 46, 46);
+    --time:red;
+
+    --text : black;
+    --block-bg: #E0E0E0;
+    --block-hover:#FFD54F;
+    
+    --bg : #F8F8F8;
+    --outline: #212121;
+
+    --add-bg:rgba(255, 193, 7,0.5) ;
+}
+
+#close
+{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    width: 15px;
+    height: auto;
+}
+
+*,*::after,*::before
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+    width: 5px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track background color */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb color */
+    
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Thumb color on hover */
+    
+  }
+
+/* page layout */
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    transition: .5s ease-in;
+    color: var(--text);
+}
+
+#clock-cont
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    min-width: 260px;
+    border-bottom: 2px var(--outline) solid;
+    height: 30vh;
+    margin-bottom: 5px;
+}
+
+/* clock design */
+#clock-out
+{
+    cursor: pointer;
+    width: 260px;
+    height: 80px;
+    border-radius: 20px;
+    border: 10px var(--clock-body) solid;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: var(--clock-in);
+    bottom: 10px;
+    padding: 2px 10px;
+
+}
+.animated-buzzer
+{
+    animation: buzzing 0.5s infinite alternate;
+}
+#clock-in
+{
+    display: inherit;
+    width: 72% ;
+    gap: 2px;
+}
+.digit
+{
+    font-size: 1.9rem;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    color:var(--time)
+}
+span.digit
+{
+    margin: 0px 1px;
+}
+
+.am-pm
+{
+    width: 10%;
+    margin-left: 8px;
+}
+.clock-leg
+{
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    bottom: -21px;
+    background-color: var(--clock-body);
+    z-index: -1;
+}
+
+.left
+{
+    left: 20px;
+    rotate: 10deg;
+}
+.right
+{
+    right: 20px;
+    rotate: -10deg;
+}
+
+#clock-buzzer
+{
+    position: absolute;
+    left: 60px;
+    width: 150px;
+    height: 5px;
+    background-color: red;
+}
+/*  */
+
+/* icon */
+
+.icon
+{
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* add an alarm block */
+
+#lower-cont
+{
+    width: 50%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: start;  
+    margin-top: 10px; 
+}
+#add-alarm
+{
+    padding-bottom: 5px;
+    padding: 5px;
+    width: 250px;
+    display: inherit;
+    flex-direction: row;
+    justify-content: start;
+    align-items:center;
+    
+}
+#add-alarm p
+{
+    margin-left: 10px;
+    letter-spacing: 2px;
+}
+
+
+
+/* upcoming container */
+
+#upcoming-cont
+{
+    padding-bottom: 5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+    margin-top: 15px;
+    border-left: 2px solid var(--outline);
+    height: 50vh;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+#upcoming-cont>p
+{
+    letter-spacing: 2px;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    border-bottom: 1px solid var(--outline);
+    margin-bottom: 5px;
+}
+
+
+/* upcoming block */
+
+
+.upcoming-block
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--block-bg);
+    padding: 5px;
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 2px;
+    letter-spacing: 4px;
+    border-left: 2px solid var(--outline);
+}
+.upcoming-block:hover
+{
+    background-color: var(--block-hover);
+    cursor: pointer;
+}
+
+.upcoming-block .child
+{
+    display: inherit;
+}
+#upcoming-cont img
+{
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+}
+
+.delete_icon:hover
+{
+    content: url("img/delete.png");
+}
+
+
+/* adding alarm block */
+
+#set-alrm-block
+{ 
+    width: 280px;
+    height: 170px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 40%;
+    transform: translateY(40%);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--add-bg);    
+    backdrop-filter: blur(2px);
+}
+#set-alrm-block input[type='number']
+{
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    padding: 5px;
+    background-color: transparent;
+
+    border-bottom: 2px solid var(--clock-body);
+}
+
+
+
+#set-alrm-block select 
+{
+    padding: 2px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-left: 5px;
+    border: none;
+    background-color: transparent;
+
+}
+
+#set-alrm-block button
+{
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    cursor: pointer;
+
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+
+.hide
+{
+    display: none !important;
+}
+
+
+/* alarm alert class */
+@keyframes buzzing {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(2px, -3px); 
+    rotate: 2deg;
+    }
+    100% { transform: translate(-2px, -3px);
+        rotate: -2deg;
+    }
+  }
+  
+@keyframes alert-color 
+{
+    0% { background-color: red; }
+    50% { background-color: white; }
+    100% { background-color: red; }
+  
+}
+.alert{
+    width: 100%;
+    height: 100%;
+    /* background-color:; Replace with your desired background color */
+    animation: alert-color 0.5s infinite alternate;
+}
+
+#sound
+{
+    display: none;
+}
+
+/* mode */
+#mode
+{
+    width: 60px;
+    height: 25px;
+    /* border: 1px black solid; */
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+    transition: .6s ease-in;
+    background-color: #E0E0E0;
+}
+
+#set
+{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: .4s ease-in-out;
+}
+.dark-on
+{
+    background-color: #777777;
+    border: none !important;
+}
+.light
+{
+    transform: translateX(0px);
+    background-image: url("img/sun.png");
+    background-size: 24px 24px;
+}
+
+.dark
+{
+    transform: translateX(35px);
+    background-image: url("img/full-moon.png");
+    background-size: 25px 25px;
+}
